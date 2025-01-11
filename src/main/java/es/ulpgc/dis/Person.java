@@ -2,10 +2,8 @@ package es.ulpgc.dis;
 
 import java.time.LocalDate;
 
-import static jdk.internal.icu.lang.UCharacter.getAge;
-
 public class Person {
-    private static final int DAYS_OF_YEAR = 365;
+    private static final long DAYS_OF_YEAR = 365;
     private final String name;
     private final LocalDate birthday;
 
