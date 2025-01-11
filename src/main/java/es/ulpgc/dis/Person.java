@@ -4,37 +4,39 @@ import java.time.LocalDate;
 
 public class Person {
     private static final int DAYS_OF_YEAR = 365;
+    private final String name;
 
-    public String getNombre() {
-        return nombre;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", age=" + getAge() +
+                '}';
+    }
+
+
+
+    private final LocalDate birthday;
+
+    public String getName() {
+        return name;
     }
 
     public LocalDate getBirthday() {
         return birthday;
     }
-
-    public Person(String nombre, LocalDate birthday) {
-        this.nombre = nombre;
-        this.birthday = birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "nombre='" + nombre + '\'' +
-                ", birthday=" + birthday +
-                ", age=" + GetAge() +
-                '}';
-    }
-
-    public int GetAge() {
+    
+    public int getAge() {
         return toYears(LocalDate.now().toEpochDay() - birthday.toEpochDay());
     }
 
-    private int toYears(long days){
+    public int toYears(long days) {
         return (int) (days/DAYS_OF_YEAR);
     }
 
-    private final String nombre;
-    private final LocalDate birthday;
+    public Person(String name, LocalDate birthday) {
+        this.name = name;
+        this.birthday = birthday;
+    }
 }
